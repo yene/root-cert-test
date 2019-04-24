@@ -1,0 +1,24 @@
+[req]
+req_extensions = v3_req
+# x509_extensions = v3_req # does not seem to work, extension has to be passed in per parameter
+distinguished_name = req_distinguished_name
+prompt = no
+
+[req_distinguished_name]
+C = US
+ST = California
+L = Los Angeles
+O = mydomain LLC
+CN = mydomain.com
+#emailAddress = info@example.com
+
+[v3_req]
+basicConstraints = CA:FALSE
+keyUsage = digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth, clientAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = mydomain.com
+DNS.2 = www.mydomain.com
+DNS.3 = blog.mydomain.com
