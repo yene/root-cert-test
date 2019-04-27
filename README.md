@@ -1,15 +1,16 @@
 # Working with Root CA
 
 ## Notes
-Do not use this document, these are just my learning notes.
+Do not use this document, these are just my learnings. ヽ(◉◡◔)ﾉ
 
-Use a config file for creation, pass it in with `-config`.
 If the certificate is in text format, then it is in PEM format.
 Trusted root certificate is sometimes refered as anchor.
 I recommend to use Linux with latest openssl for key creation.
-Make sure older versions of TLS are not supported by your server, it should require 1.2
-`curl --tlsv1.1 --cacert rootCa.crt https://www.mydomain.com`
-`curl --tlsv1.0 --cacert rootCa.crt https://www.mydomain.com`
+
+Make sure versions before TLS 1.2 are not supported by your server.
+
+* `curl --tlsv1.1 --cacert rootCa.crt https://www.mydomain.com` should fail
+* `curl --tlsv1.0 --cacert rootCa.crt https://www.mydomain.com` should fail
 
 A lot of good stuff can be found in [Simple Golang HTTPS/TLS Examples](https://github.com/denji/golang-tls)
 
