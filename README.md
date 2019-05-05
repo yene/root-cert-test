@@ -3,11 +3,9 @@
 ## Notes
 Do not use this document, these are just my learnings. ヽ(◉◡◔)ﾉ
 
-If the certificate is in text format, then it is in PEM format.
-Trusted root certificate is sometimes refered as anchor.
-I recommend to use Linux with latest openssl for key creation.
+Cloudflare provides a PKI and TLS toolkit called [CFSSL](https://github.com/cloudflare/cfssl) which is easier than OpenSSL.
 
-Make sure versions before TLS 1.2 are not supported by your server.
+Make sure TLS versions before 1.2 are not supported by your server.
 
 * `curl --tlsv1.1 --cacert rootCa.crt https://www.mydomain.com` should fail
 * `curl --tlsv1.0 --cacert rootCa.crt https://www.mydomain.com` should fail
